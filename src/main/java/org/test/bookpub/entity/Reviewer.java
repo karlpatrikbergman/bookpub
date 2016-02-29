@@ -1,9 +1,15 @@
 package org.test.bookpub.entity;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true) //Needed by Hibernate
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Value
+@Builder
 @Entity
 public class Reviewer {
     @Id
@@ -11,36 +17,4 @@ public class Reviewer {
     private Long id;
     private String firstName;
     private String lastName;
-
-    protected Reviewer() {
-    }
-
-    public Reviewer(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }

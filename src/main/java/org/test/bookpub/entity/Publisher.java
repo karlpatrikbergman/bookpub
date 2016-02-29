@@ -1,11 +1,17 @@
 package org.test.bookpub.entity;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true) //Needed by Hibernate
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Value
+@Builder
 @Entity
 public	class	Publisher {
     @Id
@@ -14,40 +20,4 @@ public	class	Publisher {
     private String name;
     @OneToMany(mappedBy = "publisher")
     private List<Book> books;
-
-    protected Publisher() {
-    }
-
-    public Publisher(String name, List<Book> books) {
-        this.name = name;
-        this.books = books;
-    }
-
-    public Publisher(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 }

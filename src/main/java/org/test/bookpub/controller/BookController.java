@@ -9,11 +9,13 @@ import org.test.bookpub.entity.Book;
 import org.test.bookpub.repository.BookRepository;
 
 /**
- * REMEMBER!
- * I have configured some Spring Data REST services:
- * - AuthorRepository
- * - PublisherRepository
- * - ReviewerRepository
+ * REMEMBER! I have configured some Spring Data REST services: - AuthorRepository - PublisherRepository -
+ * ReviewerRepository
+ *
+ * @ResponseBody comes with meta-annotation @RestController
+ *
+ * @ResponseBody is a Spring MVC annotation indicating that responses from the web request-mapped methods constitute the
+ * entire content of the HTTP response body payload, which is typical for RESTful applications
  */
 
 
@@ -24,15 +26,13 @@ public class BookController {
     private BookRepository bookRepository;
 
     /**
-     * My guess is that Spring sees that there is as String (isbn) that needs
-     * to be converted to a Book, and looks for registered formatters. When
-     * found BookFormatter is used for the conversion.
+     * My guess is that Spring sees that there is as String (isbn) that needs to be converted to a Book, and looks for
+     * registered formatters. When found BookFormatter is used for the conversion.
      */
 //    @RequestMapping(value = "/{isbn}/reviewers", method = RequestMethod.GET)
 //    public List<Reviewer> getReviewers(@PathVariable("isbn") Book book) {
 //        return book.getReviewers();
 //    }
-
     @RequestMapping(method = RequestMethod.GET)
     public Iterable<Book> getAllBooks() {
         return bookRepository.findAll();
