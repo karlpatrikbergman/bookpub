@@ -1,7 +1,7 @@
 package org.test.bookpub.entity;
 
 public class Isbn {
-    private String isbn;
+    private final String isbn;
 
     public Isbn(String isbn) {
         this.isbn = isbn;
