@@ -14,7 +14,12 @@ public class BookpubApplication {
     }
 
     @Bean
-    public	StartupRunner	schedulerRunner()	{
-        return	new	StartupRunner();
+    public PopulateDatabaseRunner populateDatabaseRunner() {
+        return new PopulateDatabaseRunner();
+    }
+
+    @Bean
+    public ScheduleExampleRunner scheduleExampleRunner() {
+        return new ScheduleExampleRunner();
     }
 }

@@ -1,5 +1,6 @@
 package org.test.bookpub.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -13,11 +14,13 @@ import java.util.List;
 @Value
 @Builder
 @Entity
-public	class	Publisher {
+public class Publisher {
     @Id
     @GeneratedValue
     private Long id;
     private String name;
+
+    @JsonBackReference
     @OneToMany(mappedBy = "publisher")
     private List<Book> books;
 }

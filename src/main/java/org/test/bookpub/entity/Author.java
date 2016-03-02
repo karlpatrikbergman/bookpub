@@ -1,5 +1,6 @@
 package org.test.bookpub.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -28,6 +29,8 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastName;
+
+    @JsonBackReference
     @OneToMany(mappedBy = "author")
     private List<Book> books;
 }
