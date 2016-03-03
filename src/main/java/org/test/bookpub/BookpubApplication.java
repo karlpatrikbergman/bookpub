@@ -18,8 +18,8 @@ public class BookpubApplication {
         return new PopulateDatabaseRunner();
     }
 
-    @Bean
-    public ScheduleExampleRunner scheduleExampleRunner() {
-        return new ScheduleExampleRunner();
-    }
+//    @Bean
+//    public ScheduleExampleRunner scheduleExampleRunner() {
+//        return new ScheduleExampleRunner();
+//    }
 }
