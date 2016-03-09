@@ -1,0 +1,9 @@
+keytool -genkey -alias bookpub -keyalg RSA -validity 365
+
+//Import to p12 keystore
+keytool -importkeystore -srckeystore ~/.keystore -destkeystore ~/keystore.p12 -deststoretype PKCS12
+
+//export certificate from p12 keystore
+openssl pkcs12 -in ~/keystore.p12  -nokeys -out bookpub.pem
+
+keytool -exportcert -alias bookpub -file bookpub.der -keystore ~/.keystore

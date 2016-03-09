@@ -4,13 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.test.bookpubstarter.dbcount.EnableDbCounting;
 
 @SpringBootApplication
 @EnableScheduling
-public class BookpubApplication {
+@EnableDbCounting
+public class BookPubApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BookpubApplication.class, args);
+        SpringApplication.run(BookPubApplication.class, args);
     }
 
     @Bean

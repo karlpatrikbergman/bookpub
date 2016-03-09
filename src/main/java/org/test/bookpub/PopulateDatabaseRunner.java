@@ -4,6 +4,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.test.bookpub.entity.Author;
 import org.test.bookpub.entity.Book;
 import org.test.bookpub.entity.Publisher;
@@ -15,6 +17,7 @@ import org.test.bookpub.repository.ReviewerRepository;
 
 import java.util.Arrays;
 
+@Order(Ordered.LOWEST_PRECEDENCE - 15)
 public class PopulateDatabaseRunner implements CommandLineRunner {
     protected final Log logger = LogFactory.getLog(getClass());
 

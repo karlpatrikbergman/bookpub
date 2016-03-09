@@ -8,6 +8,7 @@ import java.util.Collection;
 
 @Configuration
 public class DbCountAutoConfiguration {
+
     @Bean
     public DbCountRunner dbCountRunner(Collection<CrudRepository> repositories) {
         return new DbCountRunner(repositories);
