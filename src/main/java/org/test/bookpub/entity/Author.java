@@ -1,7 +1,5 @@
 package org.test.bookpub.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -16,12 +14,15 @@ import java.util.List;
  * require a no argument constructor to create an instance. It's effectively equivalent of new Entity(). This method
  * throws InstantiationException if it doesn't found any no argument constructor in Entity class, and that's why it's
  * advised to provide a no argument constructor.
+ *
+ * Lombok @ToString() is included in @Value, but to prevent prevent StackOverFlowException caused by circular dependency
+ * between Book <--> Author we need to use @ToString(exclude={"books"})
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true) //Needed by Hibernate
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Value
+@ToString(exclude={"books"})
 @Builder
-@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 public class Author {
     @Id
@@ -30,9 +31,12 @@ public class Author {
     private String firstName;
     private String lastName;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "author")
     private List<Book> books;
+
+    public boolean hasWritten(Book book) {
+        return books.contains(book);
+    }
 }
 
 

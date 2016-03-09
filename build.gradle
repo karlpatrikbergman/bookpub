@@ -26,6 +26,7 @@ jar {
 
 repositories {
 	mavenCentral()
+    mavenLocal()
 }
 
 //Uncomment to use Jetty instead of Tomcat
@@ -36,13 +37,16 @@ repositories {
 dependencies {
     //Uncomment to use Jetty instead of Tomcat
 //	compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.7.2')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
-    compile("org.springframework.boot:spring-boot-starter-web")
-	compile("org.projectlombok:lombok:1.16.6")
+    compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.projectlombok:lombok:1.16.6')
 	compile	project(':db-count-starter')
 	runtime('com.h2database:h2')
+    testCompile("se.patrikbergman.java:java-utilities:1.0-SNAPSHOT")
+	testRuntime('com.jayway.jsonpath:json-path')
 	testCompile('org.springframework.boot:spring-boot-starter-test') 
 }
 

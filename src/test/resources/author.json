@@ -1,0 +1,17 @@
+{
+  "id" : 0,
+  "firstName" : "Ursula K",
+  "lastName" : "Le Guin",
+  "books" : [ {
+    "id" : 0,
+    "isbn" : "9780606005739",
+    "title" : "A Wizard of Earthsea",
+    "description" : "A Wizard of Earthsea is a young-adult fantasy novel written by the American author Ursula K. Le Guin, first published by the small press Parnassus in 1968. ",
+    "author" : {
+      "id" : 0,
+      "firstName" : "Ursula K",
+      "lastName" : "Le Guin",
+      "books" : [ 0 ]
+    }
+  } ]
+}

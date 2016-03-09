@@ -16,6 +16,8 @@ import org.test.bookpub.repository.PublisherRepository;
 import org.test.bookpub.repository.ReviewerRepository;
 
 import java.util.Arrays;
+//import org.test.bookpub.repository.PublisherRepository;
+//import org.test.bookpub.repository.ReviewerRepository;
 
 @Order(Ordered.LOWEST_PRECEDENCE - 15)
 public class PopulateDatabaseRunner implements CommandLineRunner {

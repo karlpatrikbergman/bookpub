@@ -1,15 +1,23 @@
 package org.test.bookpub.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+/**
+ * What is the case for using scope?
+ * @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id", scope=Book.class)
+ */
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true) //Needed by Hibernate
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Value
 @Builder
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Book {
     @Id
     @GeneratedValue
@@ -18,15 +26,12 @@ public class Book {
     private String title;
     private String description;
 
-    @JsonManagedReference("book-author")
     @ManyToOne
     private Author author;
 
-    @JsonManagedReference("book-publisher")
     @ManyToOne
     private Publisher publisher;
 
-    @JsonManagedReference("book-reviewers")
     @ManyToMany
     private List<Reviewer> reviewers;
 }

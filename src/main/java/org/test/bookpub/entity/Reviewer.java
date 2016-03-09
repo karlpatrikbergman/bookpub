@@ -9,6 +9,7 @@ import javax.persistence.Id;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true) //Needed by Hibernate
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Value
+//@ToString(exclude={"books"})
 @Builder
 @Entity
 public class Reviewer {
@@ -17,4 +18,7 @@ public class Reviewer {
     private Long id;
     private String firstName;
     private String lastName;
+
+//    @ManyToMany(mappedBy = "reviewer")
+//    private List<Book> books;
 }
