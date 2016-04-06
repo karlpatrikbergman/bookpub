@@ -35,21 +35,30 @@ repositories {
 //}
 
 dependencies {
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.7.2")
+
+    compile	project(":db-count-starter")
+    compile("org.projectlombok:lombok:1.16.6")
+
     //Uncomment to use Jetty instead of Tomcat
-//	compile("org.springframework.boot:spring-boot-starter-jetty")
-    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.7.2')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('org.springframework.boot:spring-boot-starter-data-rest')
-	compile('org.springframework.boot:spring-boot-starter-jdbc')
-    compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.projectlombok:lombok:1.16.6')
-	compile	project(':db-count-starter')
-	runtime('com.h2database:h2')
+    //compile("org.springframework.boot:spring-boot-starter-jetty")
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    runtime("com.h2database:h2")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+
+	testCompile("info.cukes:cucumber-spring:1.2.4")
+	testCompile("info.cukes:cucumber-java8:1.2.4")
+	testCompile("info.cukes:cucumber-junit:1.2.4")
     testCompile("se.patrikbergman.java:java-utilities:1.0-SNAPSHOT")
-	testRuntime('com.jayway.jsonpath:json-path')
-	testCompile('org.springframework.boot:spring-boot-starter-test') 
+	testRuntime("com.jayway.jsonpath:json-path")
+
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '2.10'
+	gradleVersion = '2.12'
 }

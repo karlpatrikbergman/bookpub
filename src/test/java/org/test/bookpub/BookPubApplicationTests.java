@@ -79,6 +79,7 @@ public class BookPubApplicationTests {
         assertEquals("Learning Spring Boot", book.getTitle());
     }
 
+    //For difference with TestRestTemplate see page 174 in Spring boot cook book
     @Test
     public void webappPublisherApi() throws Exception {
         mockMvc.perform(get("/publishers/1"))
