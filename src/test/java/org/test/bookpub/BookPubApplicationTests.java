@@ -84,7 +84,7 @@ public class BookPubApplicationTests {
     public void webappPublisherApi() throws Exception {
         mockMvc.perform(get("/publishers/1"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.parseMediaType("application/hal+json")))
+                .andExpect(content().contentType(MediaType.parseMediaType("application/hal+json;charset=UTF-8")))
                 .andExpect(content().string(containsString("Packt")))
                 .andExpect(jsonPath("$.name").value("Packt"));
     }
