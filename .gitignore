@@ -100,3 +100,4 @@ crashlytics-build.properties
 
 /.gradle/
 /build/
+/db-count-starter/build/
