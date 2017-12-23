@@ -14,6 +14,7 @@ import org.test.bookpub.entity.Book;
 import org.test.bookpub.repository.BookRepository;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -21,6 +22,7 @@ import static org.junit.Assert.assertNotNull;
 @WebAppConfiguration
 @ContextConfiguration(classes = {BookPubApplication.class, TestMockBeansConfig.class}, loader = SpringApplicationContextLoader.class)
 public class RepositoryStepdefs {
+
     @Autowired
     private WebApplicationContext context;
     @Autowired
